@@ -1,0 +1,36 @@
+.img_product_1 {
+    position: relative;
+    height: 0;
+    display: block;
+    padding-bottom: 100%;
+    overflow: hidden;
+}
+.img_product {
+    position: relative;
+    height: 0;
+    display: block;
+    padding-bottom: 55%;
+    overflow: hidden;
+}
+.img_product_1 .img_p {
+    position: absolute!important;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+}
+.img_product .img_p {
+    position: absolute!important;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 55%!important;
+    height: 100%!important;
+    object-fit: cover;
+}

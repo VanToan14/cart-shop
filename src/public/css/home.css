@@ -1,0 +1,23 @@
+.img_slider_2 {
+    overflow: hidden;
+}
+.img_slider_1 {
+    padding-bottom: 30%;
+}
+.img_slider {
+    position: relative;
+    height: 0;
+    display: block;
+}
+.img_slider_1 img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+}
+
