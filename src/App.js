@@ -15,7 +15,7 @@ import NotFound from './pages/NotFound';
 import Cart from './pages/cart';
 import ProductCategory from './components/Category/productCategory';
 import AllProductCategory from './components/Category/AllProductcategory';
-import Footer from './pages/Footer';
+
 
 function App() {
   const [cartItems,setCartItems]=useState([])
@@ -84,7 +84,6 @@ const showtotalcart=()=>{
           <Route path="*" element={<NotFound/>}/>
           <Route path="/:path/:id" element={<Detailproduct/>}/>
         </Routes>
-        <Footer/>
       </BrowserRouter>
     </div>
     <ScrollButton/>
