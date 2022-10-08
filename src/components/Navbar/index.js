@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import '../../App.css'
 import styled from "styled-components";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import { SidebarData} from "../../data/SidebarData"
-import SubMenu,{SidebarLink} from './SubMenu';
+import { SidebarData } from "../../data/SidebarData"
+import SubMenu, { SidebarLink } from './SubMenu';
 import { IconContext } from "react-icons/lib";
 import Menu, { NavMenu } from './Menu';
 import ListProduct from '../product/ListProduct';
@@ -17,7 +17,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-around;
   z-index: 12;
-  position:relative;
+  position:fixed;
   top:0;
   left:0;
   right:0;
@@ -29,7 +29,7 @@ export const Nav = styled.nav`
   
 `;
 
-  
+
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@ export const NavBtn = styled.nav`
     display: none;
   }
 `;
-  
+
 export const NavBtnLink = styled(Link)`
   border-radius: 4px;
   background: #808080;
@@ -87,7 +87,7 @@ display: none;
   z-index: 14;
 }
 `;
-const Navdiv=styled.div`
+const Navdiv = styled.div`
   position:fixed;
   top:50px;
 `;
@@ -119,17 +119,17 @@ export const NavLink = styled(Link)`
 const SidebarWrap = styled.div`
   width: 100%;
 `;
-const Navbar = ({ item,showtotalcart }) => {
+const Navbar = ({ item, showtotalcart }) => {
   const [sidebar, setSidebar] = useState(false);
-  
+
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <>
-     <IconContext.Provider value={{ color: "#fff" }}>
+      <IconContext.Provider value={{ color: "#fff" }}>
         <Nav >
-        <NavIcon to="#">
+          <NavIcon to="#">
             <FaIcons.FaBars onClick={showSidebar} />
-        </NavIcon>  
+          </NavIcon>
           {/* <NavMenu>
             <NavLink to='/'>
               Home
@@ -153,21 +153,21 @@ const Navbar = ({ item,showtotalcart }) => {
           <NavBtn>
             <NavBtnLink to='sign-in'>Sign In</NavBtnLink>
           </NavBtn> */}
-         
-          <div style={{display:'inline-flex'}}>
-          {SidebarData.map((item, index) => {
+
+          <div style={{ display: 'inline-flex' }}>
+            {SidebarData.map((item, index) => {
               return <Menu item={item} key={index} />;
             })}
           </div>
           <NavMenu>
             <NavLink to='/cart'>
               Cart {' '}
-              <button style={{marginLeft:'5px'}} className="badge">{showtotalcart(ListProduct)}</button>
+              <button style={{ marginLeft: '5px' }} className="badge">{showtotalcart(ListProduct)}</button>
             </NavLink>
           </NavMenu>
           <NavBtn>
             <NavBtnLink to='sign-in'>Sign In</NavBtnLink>
-          </NavBtn> 
+          </NavBtn>
         </Nav>
 
         <SidebarNav sidebar={sidebar}>
@@ -176,20 +176,20 @@ const Navbar = ({ item,showtotalcart }) => {
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
             <Navdiv>
-            {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
-            })}
+              {SidebarData.map((item, index) => {
+                return <SubMenu item={item} key={index} />;
+              })}
             </Navdiv>
-            <div style={{position:'absolute',bottom:'10%'}}>
+            <div style={{ position: 'absolute', bottom: '10%' }}>
               <SidebarLink to='/cart'>
                 Cart {' '}
-                <button style={{marginLeft:'5px'}} className="badge">{showtotalcart(ListProduct)}</button>
+                <button style={{ marginLeft: '5px' }} className="badge">{showtotalcart(ListProduct)}</button>
               </SidebarLink>
             </div>
           </SidebarWrap>
         </SidebarNav>
         {/* <Di onClick={showSidebar} ></Di> */}
-        
+
       </IconContext.Provider>
     </>
   );

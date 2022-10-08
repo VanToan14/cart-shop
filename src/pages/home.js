@@ -3,18 +3,18 @@ import Carousel from 'react-bootstrap/Carousel'
 import '../public/css/home.css'
 import ListProduct from "../components/product/ListProduct";
 import { DataProduct } from "../data/DataProduct";
-function Home (props){
-    const {onAdd}=props;
-    
-    return(
-        <div>
-           <Carousel variant="dark">
+function Home(props) {
+    const { onAdd } = props;
+
+    return (
+        <div style={{ marginTop: '64px' }}>
+            <Carousel variant="dark">
                 <Carousel.Item>
                     <div className="img_slider img_slider_1 img_slider_2">
                         <img
-                        className="d-block w-100"
-                        src={require('../public/img/sl2.jpg')}
-                        alt="First slide"
+                            className="d-block w-100"
+                            src={require('../public/img/sl2.jpg')}
+                            alt="First slide"
                         />
                     </div>
                     {/* <Carousel.Caption>
@@ -25,9 +25,9 @@ function Home (props){
                 <Carousel.Item>
                     <div className="img_slider img_slider_1 img_slider_2">
                         <img
-                        className="d-block w-100"
-                        src={require('../public/img/sl1.jpg')}
-                        alt="Second slide"
+                            className="d-block w-100"
+                            src={require('../public/img/sl1.jpg')}
+                            alt="Second slide"
                         />
                     </div>
                     {/* <Carousel.Caption>
@@ -38,9 +38,9 @@ function Home (props){
                 <Carousel.Item>
                     <div className="img_slider img_slider_1 img_slider_2">
                         <img
-                        className="d-block w-100"
-                        src={require('../public/img/sl3.jpg')}
-                        alt="Third slide"
+                            className="d-block w-100"
+                            src={require('../public/img/sl3.jpg')}
+                            alt="Third slide"
                         />
                     </div>
                     {/* <Carousel.Caption>
@@ -50,18 +50,18 @@ function Home (props){
                 </Carousel.Item>
             </Carousel>
             <div className="container" >
-                <h1 style={{paddingTop:'10px', borderBottom:'2px solid red'}}>PRODUCTS LIST</h1>
-            <div className="container">
-                <div className="row">
-                        {DataProduct.map(product=>(
+                <h1 style={{ paddingTop: '10px', borderBottom: '2px solid red' }}>PRODUCTS LIST</h1>
+                <div className="container">
+                    <div className="row">
+                        {DataProduct.map(product => (
                             <ListProduct
                                 key={product.id}
                                 product={product}
                                 onAdd={onAdd}
                             />
                         ))}
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     )
